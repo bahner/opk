@@ -1,0 +1,16 @@
+<html>
+<body>
+<table>
+<h1>{{ number }} aktive medlemmer importert</h1>
+<hr width=50% align=left>
+<tr><th align=left>Navn</th><th align=left>Medlemsnummer</th><th align=left>E-post</th></tr>
+{% for member in members %}
+    <tr>
+      <td>{{ member.name }}</td>
+      <td>{{ member.member_id }}</td>
+      <td>{{ member.email }}</td>
+    </tr>
+{% endfor %}
+</table>
+</body>
+</html>
