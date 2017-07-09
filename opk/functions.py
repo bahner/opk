@@ -4,7 +4,7 @@
 """Common functions for OPK"""
 
 from openpyxl import load_workbook
-from opk.config import COLUMNS, USED_COLUMNS
+from opk.config import COLUMNS, USED_COLUMNS, MEMBER_TYPES
 
 def first_name(data):
     """Fetch all but first work from string"""
@@ -29,7 +29,7 @@ def get_cell_value(ws, field_name, row):
         return field_value
 
 
-def gen_memberlist(filename):
+def gen_memberlist(filename, member_types=MEMBER_TYPES):
     """Returns list of members"""
     members = list()
     wb = load_workbook(filename=filename, read_only=False)
@@ -38,5 +38,6 @@ def gen_memberlist(filename):
         member = dict()
         for field in USED_COLUMNS:
             member[field] = get_cell_value(ws, field, row)
-        members.append(member)
+        if member['member_type'] in member_types:
+            members.append(member)
     return members

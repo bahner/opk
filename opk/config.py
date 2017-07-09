@@ -25,8 +25,20 @@ COLUMNS = {
     "club_share": "T",
 }
 
-USED_COLUMNS = [
+USED_COLUMNS = ((
     'member_id',
     'name',
     'email',
-]
+    'member_type',
+))
+
+MEMBER_TYPES = ((
+    'BARN',
+    'FAMILIE',
+    'JUNIOR',
+    'PENSJONIST',
+    'SENIOR',
+    'SPESIALMEDLEM',
+    'STØTTEMEDLEM',
+    'UNGDOM',
+))

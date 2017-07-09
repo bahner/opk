@@ -3,6 +3,9 @@
    
       <form action = "http://localhost:5000/uploader" method = "POST" 
          enctype = "multipart/form-data">
+         {% for member_type in member_types %}
+         <input type=checkbox name={{ member_type }} value={{ member_type }}>{{ member_type }}<br>
+         {% endfor %}
          <input type = "file" name = "file" />
          <input type = "submit"/>
       </form>
